@@ -13,11 +13,11 @@ Lets take a look at how to use [ImageKit.io](https://imagekit.io/) Flutter Packa
         print(progressValue);
       }
     },
-  ).then((value) {
+  ).then((String url) {
     // Get your uploaded Image file link from ImageKit.io
     //then save it anywhere you want. For Example- Firebase, MongoDB etc.
     if (kDebugMode) {
-      print(value);
+      print(url);
     }
   });
 ```
