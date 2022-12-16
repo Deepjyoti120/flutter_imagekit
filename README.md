@@ -1,8 +1,8 @@
+![Logo](https://ik.imgkit.net/ikmedia/logo/light_T4buIzohVH.svg)
+
 ## Usage
 
 Lets take a look at how to use `ImageKit.io` Flutter Package.
-
-### flutter_imagekit.dart
 
 ```dart
   ImageKit.io(
@@ -21,3 +21,7 @@ Lets take a look at how to use `ImageKit.io` Flutter Package.
     }
   });
 ```
+
+## License
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
