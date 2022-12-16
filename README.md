@@ -2,7 +2,7 @@
 
 ## Usage
 
-Lets take a look at how to use [![ImageKit.io](https://ik.imgkit.net/ikmedia/logo/light_T4buIzohVH.svg)](https://imagekit.io/) Flutter Package.
+Lets take a look at how to use [ImageKit.io](https://imagekit.io/) Flutter Package.
 
 ```dart
   ImageKit.io(
