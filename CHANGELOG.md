@@ -1,3 +1,7 @@
+## 0.0.3
+
+*  Added new `example` file.
+
 ## 0.0.2
 
 *  New initial release.
