@@ -2,7 +2,7 @@
 
 Lets take a look at how to use `ImageKit.io` Flutter Package.
 
-### counter_cubit.dart
+### flutter_imagekit.dart
 
 ```dart
   ImageKit.io(
