@@ -1,6 +1,6 @@
 ## Usage
 
-Lets take a look at how to use `ImageKit.io`
+Lets take a look at how to use `ImageKit.io` Flutter Package.
 
 ### counter_cubit.dart
 
