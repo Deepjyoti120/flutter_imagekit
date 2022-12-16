@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
-import 'package:path/path.dart' as path;
 
 typedef OnUploadProgressCallback = void Function(double progressValue);
 
@@ -14,24 +13,25 @@ class ImageKit {
           ((X509Certificate cert, String host, int port) => true);
     return httpClient;
   }
+
   static Future<String> io(
     File? file, {
     OnUploadProgressCallback? onUploadProgress,
     required String privateKey,
   }) async {
     assert(file != null);
-    String apiKey = privateKey; 
-    String basicAuth =
-        'Basic ${base64Encode(utf8.encode('$apiKey:'))}';
+    String apiKey = privateKey;
+    String basicAuth = 'Basic ${base64Encode(utf8.encode('$apiKey:'))}';
     const url = 'https://upload.imagekit.io/api/v1/files/upload';
+    String fileName = file!.path.split('/').last;
     final httpClient = getHttpClient();
     final request = await httpClient.postUrl(Uri.parse(url));
     request.headers.add('authorization', basicAuth);
     int byteCount = 0;
     var requestMultipart = http.MultipartRequest("Post", Uri.parse(url));
-    var multipart = await http.MultipartFile.fromPath("file", file!.path);
+    var multipart = await http.MultipartFile.fromPath("file", file.path);
     requestMultipart.files.add(multipart);
-    requestMultipart.fields["fileName"] = path.basename(file.path);
+    requestMultipart.fields["fileName"] = fileName;
     var msStream = requestMultipart.finalize();
     var totalByteLength = requestMultipart.contentLength;
     request.contentLength = totalByteLength;

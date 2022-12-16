@@ -1,6 +1,6 @@
 name: flutter_imagekit
 description: To use ImageKit.io API for Flutter Projects.
-version: 0.0.1 
+version: 0.0.2
 homepage: https://github.com/Deepjyoti120/flutter_imagekit
 
 environment:
