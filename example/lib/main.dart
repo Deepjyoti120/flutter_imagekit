@@ -30,7 +30,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   double linearProgress = 0.0;
-  File? file; // please use File Picker or Image Picker
+  File? file; /// please use File Picker or Image Picker
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,15 +61,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 linearProgress = progressValue;
               });
             },
-          ).then((value) {
+          ).then((String url) {
             /// Get your uploaded Image file link from [ImageKit.io]
             /// then save it anywhere you want. For Example- [Firebase, MongoDB] etc.
             if (kDebugMode) {
-              print(value);
+              print(url);
             }
           });
         },
-        tooltip: 'Increment',
+        tooltip: 'Submit',
         child: const Icon(Icons.add),
       ),
     );

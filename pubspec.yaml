@@ -1,6 +1,6 @@
 name: flutter_imagekit
 description: This Package use Official Documentation of ImageKit.io. To use ImageKit.io API for Flutter Projects. With Progress Value. This Package only required apiKey from ImageKit.io.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/Deepjyoti120/flutter_imagekit
 
 environment:

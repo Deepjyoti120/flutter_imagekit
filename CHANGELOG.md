@@ -1,3 +1,7 @@
+## 0.0.4
+
+*  Improved Documentation
+
 ## 0.0.3
 
 *  Added new `example` file.

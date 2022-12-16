@@ -3,8 +3,10 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 
+// to received image file Uploading Status during ImageKit.io() Function Call.
 typedef OnUploadProgressCallback = void Function(double progressValue);
 
+/// Add file from File Picker with `ImageKit.io` private api key.
 class ImageKit {
   static HttpClient getHttpClient() {
     HttpClient httpClient = HttpClient()
@@ -14,13 +16,17 @@ class ImageKit {
     return httpClient;
   }
 
+  /// This will return your uploaded Image/Video single link
   static Future<String> io(
     File? file, {
+
+    /// Recomended to use `setState(() {})` OR use your Fevrate
+    /// `State Management technique` to Preview Live Uploading status on your app.
     OnUploadProgressCallback? onUploadProgress,
     required String privateKey,
   }) async {
     assert(file != null);
-    String apiKey = privateKey;
+    String apiKey = privateKey; // (Keep Confidential)
     String basicAuth = 'Basic ${base64Encode(utf8.encode('$apiKey:'))}';
     const url = 'https://upload.imagekit.io/api/v1/files/upload';
     String fileName = file!.path.split('/').last;
@@ -30,7 +36,11 @@ class ImageKit {
     int byteCount = 0;
     var requestMultipart = http.MultipartRequest("Post", Uri.parse(url));
     var multipart = await http.MultipartFile.fromPath("file", file.path);
+
+    /// Required: this is your `file`
     requestMultipart.files.add(multipart);
+
+    /// Required: this is your `fileName`
     requestMultipart.fields["fileName"] = fileName;
     var msStream = requestMultipart.finalize();
     var totalByteLength = requestMultipart.contentLength;
@@ -44,6 +54,7 @@ class ImageKit {
           byteCount += data.length;
           double valueTotal = byteCount / totalByteLength;
           if (onUploadProgress != null) {
+            /// if `OnUploadProgressCallback` is null you will not received any progress Status.
             onUploadProgress(valueTotal);
           }
         },
